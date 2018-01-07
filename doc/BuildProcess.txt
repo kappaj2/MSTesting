@@ -1,0 +1,30 @@
+First process is to get JHipsterRegistry running.
+Clone from the GIT repo at => https://github.com/jhipster/jhipster-registry
+
+$ git clone https://github.com/jhipster/jhipster-registry reg
+
+Run the registry with
+1. ./mvnw
+2. yarn start
+This will start with dev profile by default
+Now package it ready for prod
+$ ./mvnw -Pprod package
+The executable can now be run with dev or prod profiles
+$ ./target/jhipster-registry-<version>.war --spring.profiles.active=prod
+
+$ ./target/jhipster-registry-3.2.4.war --spring.profiles.active=dev
+
+
+Make directory for all the different micro-services components
+cd root of application stack
+$ cd ms1
+$ jhipster => select the default options for a microservice application
+  each ms app will run with it's own java package => za.co.ajk.ms1
+
+The port config as follows:
+Gateway -> This runs on the standard 8080 port
+ms1 -> 8081 -> we start from 8081 and work upwards for each micro service
+ms2 -> 8082
+ms3 -> 8083
+ms4 -> 8084
+reg -> 8761
